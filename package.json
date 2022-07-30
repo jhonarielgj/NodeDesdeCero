@@ -1,7 +1,7 @@
 {
   "name": "nodedesdecero",
   "version": "1.0.0",
-  "description": "Curso Node desde Cero de Angel Rodríguez en Udemy",
+  "description": "Curso Node desde Cero de Fernando Herrera en Udemy.",
   "main": "index.js",
   "scripts": {
     "test": "node index.js"

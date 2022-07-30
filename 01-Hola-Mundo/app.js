@@ -1,5 +1,5 @@
 let nombre = "Jhon";
 console.log(nombre);
 
-nombre = "Ariel";
+nombre = "Gómez";
 console.log(nombre);
