@@ -1,21 +1,45 @@
+// const { argv, options } = require("yargs");
+const yargs = require("yargs");
+const { boolean } = require("yargs");
 const { crearArchivo } = require("./helpers/multiplicar.js");
-const { argv } = require("yargs").option("b", {
-  alias: "base",
-  type: "number",
-});
+// CONFIGURACIO DE OPCIONES DE YARGS
+const argv = require("yargs")
+  .option("b", {
+    // En este caso "b" y "base" serían lo mismo, el parámetro "b" tendría como alias "base". Entonces el comando "node app --base" y "node app -b" harian lo mismo
+    alias: "base",
+    // Tipo de dato que se espera
+    type: "number",
+    // Si es obligatorio se define con demanOption
+    demandOption: true,
+  })
+  .option("l", {
+    alias: "listar",
+    type: "boolean",
+    demandOption: true,
+    default: false,
+  })
+  // Para validar el tipo de dato
+  .check((argv, options) => {
+    if (isNaN(argv.b)) {
+      throw "La base tiene que ser un número";
+    } else {
+      return true;
+    }
+  }).argv;
 const n = 10;
-const tabla = 5;
+const tabla = argv.b;
+const l = argv.l;
 
 console.clear();
 
-// crearArchivo(tabla, n)
-//   .then((nombreArchivo) =>
-//     console.log(`Archivo ${nombreArchivo} creado exitosamente`)
-//   )
-//   .catch((err) => console.log(err));
+crearArchivo(tabla, n, l)
+  .then((nombreArchivo) =>
+    console.log(`Archivo ${nombreArchivo} creado exitosamente`)
+  )
+  .catch((err) => console.log(err));
 
 // Recibir parámetros desde consola
-console.clear;
+// console.clear;
 
 // En consola al ejecutar node app --table=5
 // console.log(process.argv);
@@ -35,10 +59,3 @@ console.log(argv);
 //   --version  Muestra número de versión                                [booleano]
 // Podemos usar node app --version
 // Devuelve 1.0.0 que lo toma de package.json
-
-// CONFIGURACIO DE OPCIONES DE YARGS
-// con require("yargs")
-//    .option("b", {
-//        alias: "base",
-//        type: "number",
-//     });
