@@ -1,40 +1,22 @@
 // const { argv, options } = require("yargs");
-const yargs = require("yargs");
-const { boolean } = require("yargs");
 const { crearArchivo } = require("./helpers/multiplicar.js");
-// CONFIGURACIO DE OPCIONES DE YARGS
-const argv = require("yargs")
-  .option("b", {
-    // En este caso "b" y "base" serían lo mismo, el parámetro "b" tendría como alias "base". Entonces el comando "node app --base" y "node app -b" harian lo mismo
-    alias: "base",
-    // Tipo de dato que se espera
-    type: "number",
-    // Si es obligatorio se define con demanOption
-    demandOption: true,
-  })
-  .option("l", {
-    alias: "listar",
-    type: "boolean",
-    demandOption: true,
-    default: false,
-  })
-  // Para validar el tipo de dato
-  .check((argv, options) => {
-    if (isNaN(argv.b)) {
-      throw "La base tiene que ser un número";
-    } else {
-      return true;
-    }
-  }).argv;
+const argv = require("./config/yargs");
+require("colors");
+
+// Hasta qué número va a ir multiplicada la tabla
 const n = 10;
+// Argumento por consola qué tabla generar
 const tabla = argv.b;
+// Argumento por consola si muestra o no la tabla generada por pantalla
 const l = argv.l;
+// Argumento por consolo que define hasta dónde va la tabla
+const h = argv.h;
 
-console.clear();
+// console.clear();
 
-crearArchivo(tabla, n, l)
+crearArchivo(tabla, h, l)
   .then((nombreArchivo) =>
-    console.log(`Archivo ${nombreArchivo} creado exitosamente`)
+    console.log(`Archivo ${nombreArchivo} creado exitosamente`.blue)
   )
   .catch((err) => console.log(err));
 
