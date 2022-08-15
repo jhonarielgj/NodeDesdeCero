@@ -45,12 +45,13 @@ const crearArchivo = async (tabla = 5, h, l) => {
       resultado = tabla * i;
       salida += `    ${tabla} x ${i} = ${resultado}\n`;
     }
+    console.log("l: ", l);
     if (l) {
       // Usando colors, se puede usar de estas dos formas colors.'el color deseado'(texto) o texto.'el color deseado'
       console.log(colors.green(salida));
-      console.log("Entró".red);
+      console.log("Se generó tabla exitosamente".red.bold);
     }
-    fs.writeFileSync(`tabla${tabla}.txt`, salida);
+    fs.writeFileSync(`./salida/tabla${tabla}.txt`, salida);
     return `tabla${tabla}.txt`;
   } catch (error) {
     throw error;

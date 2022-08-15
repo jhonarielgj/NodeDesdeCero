@@ -1,9 +1,11 @@
 // CONFIGURACIO DE OPCIONES DE YARGS
-const argv = require("yargs")
+const argv = require("yargs");
+
+argv
   .option("b", {
     // En este caso "b" y "base" serían lo mismo, el parámetro "b" tendría como alias "base". Entonces el comando "node app --base" y "node app -b" harian lo mismo
     alias: "base",
-    // Tipo de dato que se espera
+    // Tipo de dato que se esperaS
     type: "number",
     // Si es obligatorio se define con demanOption
     demandOption: true,
@@ -33,4 +35,5 @@ const argv = require("yargs")
     }
   }).argv;
 
+console.log("argv: ", argv.argv);
 module.exports = argv;
