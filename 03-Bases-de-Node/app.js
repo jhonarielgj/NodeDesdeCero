@@ -1,6 +1,6 @@
 // const { argv, options } = require("yargs");
 const { crearArchivo } = require("./helpers/multiplicar.js");
-const argv = require("./config/yargs");
+const argv = require("./config/yargs").argv;
 require("colors");
 
 // Hasta qué número va a ir multiplicada la tabla
@@ -16,7 +16,9 @@ const h = argv.h;
 
 crearArchivo(tabla, h, l)
   .then((nombreArchivo) =>
-    console.log(`Archivo ${nombreArchivo} creado exitosamente`.blue)
+    console.log(
+      `Archivo ${nombreArchivo.bgBlue.italic} creado exitosamente`.blue.bold
+    )
   )
   .catch((err) => console.log(err));
 
@@ -33,7 +35,7 @@ crearArchivo(tabla, h, l)
 // ];
 
 // Hay un paquete "yargs" para administrar mensajes desde la consola
-console.log(argv);
+// console.log(argv);
 // { _: [], tabla: 5, '$0': 'app' }
 //  Si ejecutamos node app --help arroja
 // Opciones:
