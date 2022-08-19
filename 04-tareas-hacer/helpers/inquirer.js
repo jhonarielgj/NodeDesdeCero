@@ -28,6 +28,4 @@ const inquirerMenu = async () => {
   return opt;
 };
 
-module.exports = {
-  inquirerMenu,
-};
+module.exports = { inquirerMenu };
