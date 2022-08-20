@@ -1,17 +1,17 @@
 {
   "name": "04-tareas-hacer",
   "version": "1.0.0",
-  "description": "Aplicación básica para Listade de Tareas",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Jhon A. Gómez J.",
+  "keywords": [],
+  "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "colors": "^1.4.0"
-  },
   "dependencies": {
-    "inquirer": "^9.1.0"
+    "colors": "^1.4.0",
+    "inquirer": "^7.3.3",
+    "uuid": "^8.3.2"
   }
 }
