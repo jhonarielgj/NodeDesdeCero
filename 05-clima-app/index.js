@@ -10,7 +10,7 @@ const main = async () => {
     switch (opt) {
       case 1:
         const lugar = await leerInput("Ciudad: ");
-        console.log("lugar: ", lugar);
+        await busquedas.ciudad(lugar);
         console.log("\nInformación de la Ciudad\n".green);
         break;
       case 2:
