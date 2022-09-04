@@ -18,6 +18,5 @@ app.listen(PORT, () => {
 // Creación de servidor usando clases
 
 const server = new Server();
-console.log("server: ", server);
 
 server.listen();
